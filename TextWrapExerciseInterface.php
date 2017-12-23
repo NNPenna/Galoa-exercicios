@@ -59,16 +59,19 @@ Class TextWrapClass implements TextWrapExerciseInterface{
 				$iF = $iF + $length;
 			}else{
 				$a = strripos(substr($text,$iI,$length)," ");
-				echo("$a </br>");
 				$dif = $a;
 				
 				if($a == 0){
-				}else{
-				array_push($textoF,substr($text,$iI,$dif));
-				}
+					array_push($textoF,substr($text,$iI,$length));
 				
-				$iF = $iF + $dif;
-				$iI = $iI + $dif;
+					$iI = $iI + $length;		
+					$iF = $iF + $length;
+			
+				}else{
+					array_push($textoF,substr($text,$iI,$dif));
+					$iF = $iF + $dif;
+					$iI = $iI + $dif;
+				}
 			}
 		}
 
